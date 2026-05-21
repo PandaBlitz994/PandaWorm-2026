@@ -34,7 +34,7 @@ void setup() {
   pinMode(VALVE3_PIN, OUTPUT);
 
   // ultrasonic setting
-  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(TRIG_PIN, OUTPUT); 
   pinMode(ECHO_PIN, INPUT);
 
   // buzzer setting

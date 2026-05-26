@@ -38,7 +38,7 @@ void setup() {
   pinMode(ECHO_PIN, INPUT);
 
   // buzzer setting
-  pinMode(BUZZER_PIN, 1);
+  pinMode(BUZZER_PIN, OUTPUT);
 
   // Reset before entering the big big loop
   seqInterval = sucktion_time; // start at sucktion
@@ -97,7 +97,6 @@ void loop() {
     }
   }
 
-
   if (currentMillis - prevSensorMillis >= sensorInterval) {
     prevSensorMillis = currentMillis;
 
@@ -109,6 +108,7 @@ void loop() {
       digitalWrite(BUZZER_PIN, 0);    // if nothing detected don't beep
     }
   }
+  delay(spike_time); // Avoiding electrical spikes
 }
 
 
@@ -121,8 +121,6 @@ long readUltrasonic() {
   
   long duration = pulseIn(ECHO_PIN, HIGH);
   return duration * 0.034 / 2; // Returns distance in cm
-
-  delay(spike_time); // Avoiding electrical spikes
 }
 
 
